@@ -1,0 +1,393 @@
+{
+  "theme": "system",
+  "recordsPerPage": 60,
+  "user": {
+    "name": "Tech Media",
+    "email": "Techmedia@gmail.com",
+    "avatar": "/avatars/shadcn.jpg"
+  },
+
+  "logo":{
+    "path":"/assets/svg/logo.svg",
+    "position":"center",
+    "height":"18",
+    "padding":"0"
+  },
+  "sidemenu": {
+    "main": [
+      {
+        "title": "Admin",
+        "icon": "LayoutDashboard",
+        "url": ""
+      },
+
+        {
+        "title": "Theme",
+        "icon": "LayoutDashboard",
+        "currentComponent":"themes",
+        "url": "themes"
+      },
+      {
+        "title": "Theme",
+        "icon": "Settings",
+        "url": "#",
+        "items": [
+          {
+            "title": "Logo",
+            "currentComponent": "logo",
+            "url": "logo"
+          },
+          {
+            "title": "Team",
+            "currentComponent": "",
+            "url": "#"
+          },
+          {
+            "title": "Billing",
+            "currentComponent": "",
+            "url": "#"
+          },
+          {
+            "title": "Limits",
+            "currentComponent": "",
+            "url": "#"
+          }
+        ]
+      }
+    ],
+    "help": {},
+    "document": {}
+  },
+
+  "Mainmenu": [
+    {
+      "menu": {
+        "name": "Laptops",
+        "image": "/assets/category/mobile.png",
+        "alt": "Laptops image",
+        "subMenu": [
+          { "title": "Smartphones", "path": "/" },
+          { "title": "Accessories", "path": "/" },
+          { "title": "Tablets", "path": "/" }
+        ],
+        "card": {
+          "title": "Latest Smartphones",
+          "description": "Discover top mobile brands, new releases, and must-have accessories.",
+          "image": "/assets/products/laptop.webp"
+        }
+      }
+    },
+    {
+      "menu": {
+        "name": "Laptops",
+        "image": "/assets/category/mobile.png",
+        "alt": "Laptops image",
+        "subMenu": [
+          { "title": "Smartphones", "path": "/" },
+          { "title": "Accessories", "path": "/" },
+          { "title": "Tablets", "path": "/" }
+        ],
+        "card": {
+          "title": "Latest Smartphones",
+          "description": "Discover top mobile brands, new releases, and must-have accessories.",
+          "image": "/assets/products/laptop.webp"
+        }
+      }
+    },
+    {
+      "menu": {
+        "name": "Laptops",
+        "image": "/assets/category/mobile.png",
+        "alt": "Laptops image",
+        "subMenu": [
+          { "title": "Smartphones", "path": "/" },
+          { "title": "Accessories", "path": "/" },
+          { "title": "Tablets", "path": "/" }
+        ],
+        "card": {
+          "title": "Latest Smartphones",
+          "description": "Discover top mobile brands, new releases, and must-have accessories.",
+          "image": "/assets/products/laptop.webp"
+        }
+      }
+    },
+    {
+      "menu": {
+        "name": "Laptops",
+        "image": "/assets/category/mobile.png",
+        "alt": "Laptops image",
+        "subMenu": [
+          { "title": "Smartphones", "path": "/" },
+          { "title": "Accessories", "path": "/" },
+          { "title": "Tablets", "path": "/" }
+        ],
+        "card": {
+          "title": "Latest Smartphones",
+          "description": "Discover top mobile brands, new releases, and must-have accessories.",
+          "image": "/assets/products/laptop.webp"
+        }
+      }
+    },
+    {
+      "menu": {
+        "name": "Laptops",
+        "image": "/assets/category/mobile.png",
+        "alt": "Laptops image",
+        "subMenu": [
+          { "title": "Smartphones", "path": "/" },
+          { "title": "Accessories", "path": "/" },
+          { "title": "Tablets", "path": "/" }
+        ],
+        "card": {
+          "title": "Latest Smartphones",
+          "description": "Discover top mobile brands, new releases, and must-have accessories.",
+          "image": "/assets/products/laptop.webp"
+        }
+      }
+    }
+  ],
+
+  "product": {
+    "details": {
+      "title": "Product Details",
+      "fields": [
+        { "key": "id", "label": "ID", "inTable": true, "isForm": true },
+        {
+          "key": "name",
+          "label": "Product Name",
+          "type": "textinput",
+          "api": "",
+          "inTable": true,
+          "isForm": true
+        },
+        {
+          "key": "price",
+          "label": "Price",
+          "type": "textinput",
+          "inTable": true,
+          "isForm": true
+        },
+        {
+          "key": "images",
+          "label": "Image",
+          "type": "file",
+          "multiple": true,
+          "inTable": true,
+          "isForm": true
+        },
+        {
+          "key": "submit",
+          "label": "Submit",
+          "type": "button",
+          "multiple": true,
+          "className": "bg-update text-update-foreground w-full",
+          "inTable": true,
+          "isForm": true
+        },
+        {
+          "key": "cancel",
+          "label": "Cancel",
+          "type": "button",
+          "className": "bg-delete text-delete-foreground w-full",
+          "multiple": true,
+          "inTable": true,
+          "isForm": true
+        },
+
+        { "key": "action", "label": "Action", "inTable": true, "isForm": true }
+      ]
+    },
+    "specification": {
+      "title": "Product Specifications",
+      "editable": [
+        {
+          "key": "menu_heading",
+          "label": "Submenu Heading",
+          "type": "dropdown",
+          "api": "",
+          "inTable": true,
+          "isForm": true
+        },
+        {
+          "key": "menu_items",
+          "label": "label",
+          "type": "textinput",
+          "api": "",
+          "inTable": true,
+          "isForm": true
+        },
+        {
+          "key": "menu_values",
+          "label": "value",
+          "type": "textinput",
+          "api": "",
+          "inTable": true,
+          "isForm": true
+        }
+      ]
+    },
+
+    "specification_read": {
+      "id": "spec_001",
+      "title": "Specification",
+      "groups": {
+        "general": {
+          "id": "grp_001",
+          "title": "General",
+          "fields": [
+            {
+              "id": "gen_001",
+              "key": "brand",
+              "label": "Brand",
+              "type": "textinput",
+              "value": "Samsung"
+            },
+            {
+              "id": "gen_001",
+              "key": "model_name",
+              "label": "Model Name",
+              "type": "textinput",
+              "value": "QLED Q60C"
+            }
+          ]
+        },
+        "additional_features": {
+          "id": "grp_002",
+          "title": "Additional Features",
+          "fields": [
+            {
+              "id": "add_1",
+              "key": "features",
+              "label": "Features",
+              "type": "textarea",
+              "value": "Voice control, App store, Screen mirroring"
+            },
+            {
+              "id": "add_2",
+              "key": "features",
+              "label": "Features",
+              "type": "textarea",
+              "value": "Voice control, App store, Screen mirroring"
+            },
+            {
+              "id": "add_3",
+              "key": "features",
+              "label": "Features",
+              "type": "textarea",
+              "value": "Voice control, App store, Screen mirroring"
+            }
+          ]
+        },
+        "dimensions": {
+          "id": "grp_003",
+          "title": "Dimensions",
+          "fields": [
+            {
+              "id": "fld_004",
+              "key": "width",
+              "label": "Width",
+              "type": "textinput",
+              "value": "123 cm"
+            },
+            {
+              "id": "fld_005",
+              "key": "height",
+              "label": "Height",
+              "type": "textinput",
+              "value": "75 cm"
+            }
+          ]
+        },
+        "warranty": {
+          "id": "grp_004",
+          "title": "Warranty",
+          "fields": [
+            {
+              "id": "warenty_1",
+              "key": "duration",
+              "label": "Warranty Period",
+              "type": "textinput",
+              "value": "2 Years"
+            },
+            {
+              "id": "warenty_2",
+              "key": "warenty_2",
+              "label": "Warranty Coverage",
+              "type": "textarea",
+              "value": "Covers panel and internal components"
+            },
+            {
+              "id": "warenty_3",
+              "key": "warenty_3",
+              "label": "Warranty Coverage",
+              "type": "textarea",
+              "value": "Covers panel and internal components"
+            },
+            {
+              "id": "warenty_4",
+              "key": "warenty_4",
+              "label": "Warranty Coverage",
+              "type": "textarea",
+              "value": "Covers panel and internal components"
+            }
+          ]
+        },
+        "convenience_features": {
+          "id": "grp_005",
+          "title": "Convenience Features",
+          "fields": []
+        },
+        "services": {
+          "id": "grp_006",
+          "title": "Services",
+          "fields": []
+        },
+        "important_note": {
+          "id": "grp_007",
+          "title": "Important Note",
+          "fields": []
+        },
+        "display_features": {
+          "id": "grp_008",
+          "title": "Display Features",
+          "fields": [
+            {
+              "id": "fld_008",
+              "key": "screen_size",
+              "label": "Screen Size",
+              "type": "textinput",
+              "value": "55 inches"
+            },
+            {
+              "id": "fld_009",
+              "key": "resolution",
+              "label": "Resolution",
+              "type": "textinput",
+              "value": "4K UHD"
+            }
+          ]
+        },
+        "audio_video_features": {
+          "id": "grp_009",
+          "title": "Audio & Video Features",
+          "fields": [
+            {
+              "id": "fld_01",
+              "key": "screen_size",
+              "label": "Screen Size",
+              "type": "textinput",
+              "value": "55 inches"
+            },
+            {
+              "id": "fld_9",
+              "key": "resolution",
+              "label": "Resolution",
+              "type": "textinput",
+              "value": "4K UHD"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
