@@ -2,8 +2,10 @@ import BallCanvas from "@/AnimationComponents/BallAnimation";
 import ImageButton from "@/Components/Button/ImageBtn";
 import apiClient from "@/pages/app/api/apiClients";
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SlideContent {
+  id: string;
   image: string;
   title: string;
   description: string;
@@ -32,6 +34,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
   const circumference = 2 * Math.PI * radius;
 
   const [slides, setSlides] = useState<SlideContent[]>([]);
+  const navigate = useNavigate();
   const fetchProducts = async () => {
     try {
       // Step 1: Fetch all item names
@@ -62,7 +65,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
           title: item.display_name, // or item.item_name if you want full name
           image: `${item.image}`,
           description: item.short_describe,
-          discount: item.stock_qty,
+          discount: item.slider_offer,
           price: item.price || item.standard_rate || 0,
         };
       });
@@ -135,6 +138,9 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
   const strokeDashoffset =
     circumference - (progressPercent / 100) * circumference;
 
+  const navigateProductPage = (id: string) => {
+    navigate(`/productpage/${id}`);
+  };
   return (
     <div className="relative w-full h-[400px] lg:h-[600px] bg-background overflow-hidden">
       {/* 🔹 Silk background layer */}
@@ -194,30 +200,39 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
               >
                 {slide.description}
               </h2>
-              <p
-                className={`text-md md:text-2xl mt-3 ${
-                  index === activeIndex
-                    ? "animate__animated animate__fadeInUp"
-                    : ""
-                }`}
-              >
-                Just ₹ {slide.price}
-              </p>
-              <p
-                className={`text-md md:text-2xl mt-3 ${
-                  index === activeIndex
-                    ? "animate__animated animate__fadeInUp"
-                    : ""
-                }`}
-              >
-                {slide.discount}
-              </p>
+              {slide.price && (
+                <p
+                  className={`text-md md:text-2xl mt-3 ${
+                    index === activeIndex
+                      ? "animate__animated animate__fadeInUp"
+                      : ""
+                  }`}
+                >
+                  Just ₹ {slide.price}
+                </p>
+              )}
+
+              {slide.discount && (
+                <p
+                  className={`text-md md:text-2xl mt-3 ${
+                    index === activeIndex
+                      ? "animate__animated animate__fadeInUp"
+                      : ""
+                  }`}
+                >
+                  {slide.discount} % Offer
+                </p>
+              )}
+
               <button
                 className={`mt-4 px-7 py-2 bg-blue-600 text-white text-sm md:text-lg rounded hover:bg-blue-700 transition ${
                   index === activeIndex
                     ? "animate__animated animate__zoomIn"
                     : ""
                 }`}
+                onClick={() => {
+                  navigateProductPage(slide.id);
+                }}
               >
                 Shop Now
               </button>

@@ -181,6 +181,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, api, ribbon }) => {
                   </div>
 
                   <div className="relative">
+                    {/* <ImageSEO
+                      src={`https://dev.aaranerp.com/${product.image}`}
+                      alt={product.name}
+                      className="w-[200px] h-[200px] object-contain rounded-md mx-auto"
+                      title="Premium Red Leather Wallet"
+                      description={"Shop our premium red leather wallet for men with RFID protection and multiple compartments."}
+                      caption="Red leather wallet with stylish stitching and RFID safety."
+                      keywords={[
+                        "leather wallet",
+                        "red wallet",
+                        "men's wallet",
+                        "RFID wallet",
+                      ]}
+                      author="Your Brand Name"
+                    /> */}
                     <img
                       src={`https://dev.aaranerp.com/${product.image}`}
                       alt={product.name}

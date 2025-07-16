@@ -28,9 +28,11 @@ interface Product {
   id: number;
   name: string;
   price: number;
-  count:number;
+  count: number;
   description: string;
   category: string;
+  offer: number;
+  slideOffer: number;
   images?: string[];
 }
 
@@ -101,37 +103,39 @@ function ProductPage() {
   // const visibleOffers = showAllOffers ? offer : offer.slice(0, 5);
   const BASE_URL = "https://dev.aaranerp.com/"; // Replace with actual URL
 
-useEffect(() => {
-  if (!id) return;
+  useEffect(() => {
+    if (!id) return;
 
-  apiClient
-    .get(`/api/resource/Product/${id}`)
-    .then((res) => {
-      const data = res.data.data || res.data;
-      const imageList = Array.isArray(data.image)
-        ? data.image.map((img: string) => BASE_URL + img)
-        : [BASE_URL + data.image];
+    apiClient
+      .get(`/api/resource/Product/${id}`)
+      .then((res) => {
+        const data = res.data.data || res.data;
 
-      setProduct({
-        ...data,
-        name: data.product_name,
-        price: data.price,
-        images: imageList,
-        description: data.description,
-        category: data.category,
-        count: data.stock_qty,
+        // Collect all image fields like image, image1, image2, etc.
+        const imageKeys = Object.keys(data).filter(
+          (key) => key.startsWith("image") && data[key]
+        );
+        const imageList = imageKeys.map((key) => BASE_URL + data[key]);
 
-      });
+        setProduct({
+          ...data,
+          name: data.display_name,
+          price: data.price,
+          offer: data.product_offer,
+          slideOffer: data.slider_offer,
+          images: imageList,
+          description: data.description,
+          category: data.category,
+          count: data.stock_qty,
+        });
 
-      // Set default image as first one
-      if (imageList.length > 0) {
-        setSelectedImage(imageList[0]);
-      }
-    })
-    .catch(() => setError("Product not found"))
-    .finally(() => setLoading(false));
-}, [id]);
-
+        if (imageList.length > 0) {
+          setSelectedImage(imageList[0]);
+        }
+      })
+      .catch(() => setError("Product not found"))
+      .finally(() => setLoading(false));
+  }, [id]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -141,6 +145,10 @@ useEffect(() => {
   if (!product || error)
     return <div className="text-center mt-10 text-red-500">{error}</div>;
 
+  const activeOffer = product.slideOffer ?? product.offer;
+  const prePrice = activeOffer
+    ? Math.round(product.price / (1 - activeOffer / 100))
+    : product.price;
   return (
     <div className="py-10 sm:px-[5%] mx-auto">
       <div className="grid lg:grid-cols-2 gap-5 xl:grid-cols-[35%_65%] items-start">
@@ -191,12 +199,19 @@ useEffect(() => {
             </span>{" "}
             <span>76876 rating</span> & <span>7868 Reviews</span>
           </div>
-          <p className="text-2xl font-bold">
+          <p className="text-2xl font-bold flex gap-2">
             ₹{product.price}{" "}
-            <span className="line-through text-sm text-foreground/30">
-              ₹675634
-            </span>
-            <span className="text-sm ml-2 text-create">6% offer</span>
+            {product.offer > 0 && (
+              <div className="flex items-center">
+                <span className="line-through text-sm text-foreground/30">
+                  ₹{prePrice}
+                </span>
+                <span className="text-sm ml-2 text-create">
+                  {product.slideOffer ? product.slideOffer : product.offer} %
+                  Offer
+                </span>
+              </div>
+            )}
           </p>
           <p className="text-sm text-gray-500">Extra fee</p>
 
@@ -224,17 +239,22 @@ useEffect(() => {
           )} */}
 
           <div className="flex justify-between mt-5 gap-4">
-            <Button className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" label={" Add to Cart"} />
-             
-           <Button
+            <Button
+              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              label={" Add to Cart"}
+            />
+
+            <Button
               disabled={product.count < 1}
               className={`flex-1 px-4 py-2 rounded transition 
-    ${product.count < 1
-                  ? "bg-gray-400 cursor-not-allowed text-white"
-                  : "bg-green-600 hover:bg-green-700 text-white"}
-  `} label={"BUY NOW"}/>
-  
-
+    ${
+      product.count < 1
+        ? "bg-gray-400 cursor-not-allowed text-white"
+        : "bg-green-600 hover:bg-green-700 text-white"
+    }
+  `}
+              label={"BUY NOW"}
+            />
           </div>
           {/* Specifications */}
           <div className="mt-10 border border-ring/30 rounded-md p-5">
@@ -325,7 +345,11 @@ useEffect(() => {
 
       {/* Similar Products */}
       <div className="mt-12">
-        <ProductCard title="Similar Products" api={"api/products"} />
+        <ProductCard
+          title="Similar Items"
+          api={`api/resource/Product?fields=["name"]&filters=[["is_popular", "=", 1]]`}
+          ribbon={true}
+        />
       </div>
     </div>
   );
