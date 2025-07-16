@@ -151,7 +151,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
               <img
                 // src={`https://dev.aaranerp.com/${slide.image}`}
                 src={Adbanner}
-                alt={`Slide ${index}`}
+                alt={`Slide ${index} ${slide}`}
                 className={`h-full w-full p-3 object-fit`}
               />
             </div>
