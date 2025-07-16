@@ -60,7 +60,6 @@ function Home() {
       <ScrollAdverthisment
         title="Featured Brands"
         api={`api/resource/Product?fields=["name"]&filters=[["is_popular", "=", 1]]`}
-       
       />
       <ProductCard2
         title="Popular Items"

@@ -28,11 +28,11 @@ const palets = [
 const Ball = (canvas: HTMLCanvasElement): BallType => {
   const width = canvas.width;
   const height = canvas.height;
-  const minR = width * 0.05;
+  const minR = width * 0.02;
   const maxR = width * 0.1;
 
   const r = Math.random() * (maxR - minR) + minR;
-  const x = Math.random() * (width - r * 2) + r;
+  const x = Math.random() * (width - r * 1) + r;
   const y = Math.random() * (height - r * 2) + r;
   const fill = Math.random();
   const v = {
