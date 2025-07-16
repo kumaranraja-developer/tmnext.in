@@ -7,11 +7,14 @@
     "avatar": "/avatars/shadcn.jpg"
   },
 
-  "logo":{
-    "path":"/assets/svg/logo.svg",
-    "position":"center",
-    "height":"18",
-    "padding":"0"
+  "logo": {
+    "path": "/assets/svg/logo.svg",
+    "position": "center",
+    "height": "20",
+    "font_size": "2",
+    "company_name": "",
+    "color": "",
+    "padding": "0"
   },
   "sidemenu": {
     "main": [
@@ -21,12 +24,6 @@
         "url": ""
       },
 
-        {
-        "title": "Theme",
-        "icon": "LayoutDashboard",
-        "currentComponent":"themes",
-        "url": "themes"
-      },
       {
         "title": "Theme",
         "icon": "Settings",
@@ -63,89 +60,256 @@
     {
       "menu": {
         "name": "Laptops",
-        "image": "/assets/category/mobile.png",
+        "image": "/assets/products/laptop.webp",
         "alt": "Laptops image",
-        "subMenu": [
-          { "title": "Smartphones", "path": "/" },
-          { "title": "Accessories", "path": "/" },
-          { "title": "Tablets", "path": "/" }
-        ],
+        "subMenu": {
+          "title": "Laptop Types",
+          "items": [
+            { "title": "Business Laptop", "path": "/" },
+            { "title": "Gaming Laptop", "path": "/" },
+            { "title": "Personal Laptop", "path": "/" }
+          ]
+        },
         "card": {
-          "title": "Latest Smartphones",
-          "description": "Discover top mobile brands, new releases, and must-have accessories.",
+          "title": "Top Laptop Deals",
+          "description": "Browse the latest laptops for work, gaming, or everyday use.",
           "image": "/assets/products/laptop.webp"
         }
       }
     },
     {
       "menu": {
-        "name": "Laptops",
-        "image": "/assets/category/mobile.png",
-        "alt": "Laptops image",
-        "subMenu": [
-          { "title": "Smartphones", "path": "/" },
-          { "title": "Accessories", "path": "/" },
-          { "title": "Tablets", "path": "/" }
-        ],
+        "name": "Desktops",
+        "image": "/assets/products/desktop.webp",
+        "alt": "Desktops image",
+        "subMenu": {
+          "title": "Desktop Types",
+          "items": [
+            { "title": "Business Tower PCs", "path": "/" },
+            { "title": "Business All-In-One PCs", "path": "/" },
+            { "title": "Consumer Tower PCs", "path": "/" },
+            { "title": "Consumer All-In-One PCs", "path": "/" },
+            { "title": "Lenovo Smart Hub", "path": "/" }
+          ]
+        },
         "card": {
-          "title": "Latest Smartphones",
-          "description": "Discover top mobile brands, new releases, and must-have accessories.",
-          "image": "/assets/products/laptop.webp"
+          "title": "Powerful Desktops",
+          "description": "High-performance desktops for professionals, creators, and gamers.",
+          "image": "/assets/products/desktop.webp"
         }
       }
     },
     {
       "menu": {
-        "name": "Laptops",
-        "image": "/assets/category/mobile.png",
-        "alt": "Laptops image",
-        "subMenu": [
-          { "title": "Smartphones", "path": "/" },
-          { "title": "Accessories", "path": "/" },
-          { "title": "Tablets", "path": "/" }
-        ],
+        "name": "PC Hardwares",
+        "image": "/assets/products/hardware.webp",
+        "alt": "PC Hardwares image",
+        "subMenu": {
+          "title": "Processors & Boards",
+          "items": [
+            { "title": "Intel Processors", "path": "/" },
+            { "title": "Motherboards For Intel", "path": "/" },
+            { "title": "Motherboards For AMD", "path": "/" }
+          ]
+        },
+        "subMenu2": {
+          "title": "Hard Drives",
+          "items": [
+            { "title": "SAS Hard Drives", "path": "/" },
+            { "title": "AV Hard Drives", "path": "/" },
+            { "title": "Enterprise Hard Drives", "path": "/" },
+            { "title": "External Hard Drives", "path": "/" }
+          ]
+        },
+        "subMenu3": {
+          "title": "Brands",
+          "items": [
+            { "title": "Logitech", "path": "/" },
+            { "title": "HP", "path": "/" },
+            { "title": "HP", "path": "/" }
+          ]
+        },
+        "subMenu4": {
+          "title": "Memory",
+          "items": [
+            { "title": "Notebook Memories", "path": "/" },
+            { "title": "Desktop Memories", "path": "/" },
+            { "title": "Server Memories", "path": "/" }
+          ]
+        },
+        "subMenu5": {
+          "title": "Power Backup",
+          "items": [
+            { "title": "UPS", "path": "/" }
+          ]
+        },
         "card": {
-          "title": "Latest Smartphones",
-          "description": "Discover top mobile brands, new releases, and must-have accessories.",
-          "image": "/assets/products/laptop.webp"
+          "title": "PC Components & Upgrades",
+          "description": "Find RAM, SSDs, motherboards, and more to boost your PC's performance.",
+          "image": "/assets/products/hardware.webp"
         }
       }
     },
     {
       "menu": {
-        "name": "Laptops",
-        "image": "/assets/category/mobile.png",
-        "alt": "Laptops image",
-        "subMenu": [
-          { "title": "Smartphones", "path": "/" },
-          { "title": "Accessories", "path": "/" },
-          { "title": "Tablets", "path": "/" }
-        ],
+        "name": "Server",
+        "image": "/assets/products/server.png",
+        "alt": "Server image",
+        "subMenu": {
+          "title": "Server Types",
+          "items": [
+            { "title": "Tower Servers", "path": "/" },
+            { "title": "Rack Servers", "path": "/" },
+            { "title": "Server Options", "path": "/" }
+          ]
+        },
+        "subMenu2": {
+          "title": "Workstations",
+          "items": [
+            { "title": "Tower Workstations", "path": "/" },
+            { "title": "Mobile Workstations", "path": "/" }
+          ]
+        },
         "card": {
-          "title": "Latest Smartphones",
-          "description": "Discover top mobile brands, new releases, and must-have accessories.",
-          "image": "/assets/products/laptop.webp"
+          "title": "Enterprise Server Solutions",
+          "description": "Reliable and scalable servers for your IT infrastructure needs.",
+          "image": "/assets/products/server.png"
+        }
+      }
+    },
+     {
+      "menu": {
+        "name": "Printer",
+        "image": "/assets/products/printer.jpg",
+        "alt": "Networking image",
+        "subMenu": {
+          "title": "Printer Type",
+          "items": [
+            { "title": "Inkjet Printers", "path": "/" },
+            { "title": "Laser Printers", "path": "/" },
+            { "title": "All-in-One Printers", "path": "/" },
+            { "title": "Dot Matrix Printers", "path": "/" },
+            { "title": "Thermal Printers", "path": "/" },
+            { "title": "3D Printers", "path": "/" },
+            { "title": "Photo Printers", "path": "/" },
+            { "title": "Label Printers", "path": "/" }
+          ]
+        },
+        "subMenu2": {
+          "title": "Use Case",
+          "items": [
+            { "title": "Home Printers", "path": "/" },
+            { "title": "Office Printers", "path": "/" },
+            { "title": "Portable Printers", "path": "/" },
+            { "title": "Commercial/Enterprise Printers", "path": "/" }
+          ]
+        },
+         "subMenu3": {
+          "title": "By Features",
+          "items": [
+            { "title": "Wireless Printers", "path": "/" },
+            { "title": "Duplex (Double-Sided) Printers", "path": "/" },
+            { "title": "Color Printers", "path": "/" },
+            { "title": "Monochrome Printers", "path": "/" },
+            { "title": "Mobile Printing Support", "path": "/" },
+            { "title": "Cloud-Enabled Printers", "path": "/" }
+          ]
+        },
+         "subMenu4": {
+          "title": "Use Case",
+          "items": [
+            { "title": "USB Printers", "path": "/" },
+            { "title": "Wi-Fi Printers", "path": "/" },
+            { "title": "Bluetooth Printers", "path": "/" },
+            { "title": "Ethernet Network Printers", "path": "/" }
+          ]
+        },
+    
+        "card": {
+          "title": "Choose Your Print Style",
+          "description": "From ink to laser, print your way",
+          "image": "/assets/products/printer.jpg"
         }
       }
     },
     {
       "menu": {
-        "name": "Laptops",
-        "image": "/assets/category/mobile.png",
-        "alt": "Laptops image",
-        "subMenu": [
-          { "title": "Smartphones", "path": "/" },
-          { "title": "Accessories", "path": "/" },
-          { "title": "Tablets", "path": "/" }
-        ],
+        "name": "Camera",
+        "image": "/assets/products/camera.webp",
+        "alt": "Camera image",
+        "subMenu": {
+          "title": "Camera Categories",
+          "items": [
+            { "title": "Smartphones", "path": "/" },
+            { "title": "Accessories", "path": "/" },
+            { "title": "Tablets", "path": "/" }
+          ]
+        },
         "card": {
-          "title": "Latest Smartphones",
-          "description": "Discover top mobile brands, new releases, and must-have accessories.",
-          "image": "/assets/products/laptop.webp"
+          "title": "Smart CCTV Systems",
+          "description": "Explore surveillance cameras and security systems for home and business safety.",
+          "image": "/assets/products/camera.webp"
+        }
+      }
+    },
+    {
+      "menu": {
+        "name": "Networking",
+        "image": "/assets/products/network.jpeg",
+        "alt": "Networking image",
+        "subMenu": {
+          "title": "WiFi Devices",
+          "items": [
+            { "title": "Routers", "path": "/" },
+            { "title": "Range Extenders", "path": "/" },
+            { "title": "Access Points", "path": "/" }
+            
+          ]
+        },
+        "subMenu2": {
+          "title": "Network Accessories",
+          "items": [
+            { "title": "Switches", "path": "/" },
+            { "title": "Cables", "path": "/" },
+            { "title": "Adapters", "path": "/" }
+          ]
+        },
+        "card": {
+          "title": "Smart Networking Gear",
+          "description": "Find routers, switches, and access points for your home or office.",
+          "image": "/assets/products/network.jpeg"
+        }
+      }
+    },
+   
+    {
+      "menu": {
+        "name": "Accessories",
+        "image": "/assets/products/accessories.jpeg",
+        "alt": "Accessories image",
+        "subMenu": {
+          "title": "Power Essentials",
+          "items": [
+            { "title": "Charging Cables", "path": "/" },
+            { "title": "Wall Adapters", "path": "/" }
+          ]
+        },
+        "subMenu2": {
+          "title": "Audio Accessories",
+          "items": [
+            { "title": "Headphones", "path": "/" },
+            { "title": "Bluetooth Speakers", "path": "/" }
+          ]
+        },
+        "card": {
+          "title": "Boost Your Setup",
+          "description": "Keyboards, mice, stands — built for comfort and control.",
+          "image": "/assets/products/accessories.jpeg"
         }
       }
     }
   ],
+
 
   "product": {
     "details": {

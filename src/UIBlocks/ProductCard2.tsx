@@ -109,7 +109,7 @@ const ProductCard2: React.FC<ProductCardProps> = ({ title, api, ribbon }) => {
   };
 
   return (
-    <div className="relative my-5 mx-[5%] max-w-full overflow-hidden bg-[#f7eff6]">
+    <div className="relative my-5 mx-[5%] max-w-full overflow-hidden border border-ring/30 rounded-md">
       <div className="flex justify-between items-center px-3">
         <h1 className="mt-2 font-bold text-foreground/80 text-[25px]">
           {title}

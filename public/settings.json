@@ -150,33 +150,7 @@
         }
       }
     },
-    {
-      "menu": {
-        "name": "Server",
-        "image": "/assets/products/server.png",
-        "alt": "Server image",
-        "subMenu": {
-          "title": "Server Types",
-          "items": [
-            { "title": "Tower Servers", "path": "/" },
-            { "title": "Rack Servers", "path": "/" },
-            { "title": "Server Options", "path": "/" }
-          ]
-        },
-        "subMenu2": {
-          "title": "Workstations",
-          "items": [
-            { "title": "Tower Workstations", "path": "/" },
-            { "title": "Mobile Workstations", "path": "/" }
-          ]
-        },
-        "card": {
-          "title": "Enterprise Server Solutions",
-          "description": "Reliable and scalable servers for your IT infrastructure needs.",
-          "image": "/assets/products/server.png"
-        }
-      }
-    },
+  
      {
       "menu": {
         "name": "Printer",
@@ -278,6 +252,33 @@
           "title": "Smart Networking Gear",
           "description": "Find routers, switches, and access points for your home or office.",
           "image": "/assets/products/network.jpeg"
+        }
+      }
+    },
+      {
+      "menu": {
+        "name": "Server",
+        "image": "/assets/products/server.png",
+        "alt": "Server image",
+        "subMenu": {
+          "title": "Server Types",
+          "items": [
+            { "title": "Tower Servers", "path": "/" },
+            { "title": "Rack Servers", "path": "/" },
+            { "title": "Server Options", "path": "/" }
+          ]
+        },
+        "subMenu2": {
+          "title": "Workstations",
+          "items": [
+            { "title": "Tower Workstations", "path": "/" },
+            { "title": "Mobile Workstations", "path": "/" }
+          ]
+        },
+        "card": {
+          "title": "Enterprise Server Solutions",
+          "description": "Reliable and scalable servers for your IT infrastructure needs.",
+          "image": "/assets/products/server.png"
         }
       }
     },
