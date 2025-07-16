@@ -33,6 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = async (usr: string, pwd: string) => {
+    setUser(null);
     await loginFrappe(usr, pwd);
     const currentUser = await getLoggedInUser();
     setUser(currentUser);

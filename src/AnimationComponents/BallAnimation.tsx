@@ -29,16 +29,15 @@ const Ball = (canvas: HTMLCanvasElement): BallType => {
   const width = canvas.width;
   const height = canvas.height;
   const minR = width * 0.05;
-const maxR = width * 0.1;
+  const maxR = width * 0.1;
 
   const r = Math.random() * (maxR - minR) + minR;
   const x = Math.random() * (width - r * 2) + r;
   const y = Math.random() * (height - r * 2) + r;
   const fill = Math.random();
   const v = {
-    x: (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1),
-y: (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1),
-
+    x: (Math.random() * 0.5+ 0.5) * (Math.random() < 0.5 ? -1 : 0.5),
+    y: (Math.random() * 0.5 + 0.5) * (Math.random() < 0.5 ? -1 : 0.5),
   };
 
   return {
@@ -48,8 +47,10 @@ y: (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1),
     fill,
     v,
     update() {
-      if (this.x + this.v.x > width - this.r || this.x + this.v.x < this.r) this.v.x *= -1;
-      if (this.y + this.v.y > height - this.r || this.y + this.v.y < this.r) this.v.y *= -1;
+      if (this.x + this.v.x > width - this.r || this.x + this.v.x < this.r)
+        this.v.x *= -1;
+      if (this.y + this.v.y > height - this.r || this.y + this.v.y < this.r)
+        this.v.y *= -1;
       this.x = Math.max(this.r, Math.min(this.x + this.v.x, width - this.r));
       this.y = Math.max(this.r, Math.min(this.y + this.v.y, height - this.r));
     },
@@ -93,7 +94,9 @@ export default function BallCanvas({ ballCount }: BallCanvasProps) {
     const draw = () => {
       if (!canvas || !ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.globalCompositeOperation = opts.current.BlendMode ? "screen" : "source-over";
+      ctx.globalCompositeOperation = opts.current.BlendMode
+        ? "screen"
+        : "source-over";
       ctx.fillStyle = "#F7EFF6";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       newBalls.forEach((ball) => {
