@@ -135,7 +135,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
     circumference - (progressPercent / 100) * circumference;
 
   return (
-    <div className="relative w-full h-[350px] px-5 lg:px-[5%] bg-background overflow-hidden">
+    <div className="relative w-full h-[300px] md:h-[350px] bg-background overflow-hidden">
 
       {/* 🔹 Slides */}
       <div className="w-full h-full relative">
@@ -152,14 +152,14 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
                 // src={`https://dev.aaranerp.com/${slide.image}`}
                 src={Adbanner}
                 alt={`Slide ${index} ${slide}`}
-                className={`h-full w-full p-3 object-fit`}
+                className={`h-full w-full object-fit`}
               />
             </div>
 
             {/* Right: Text Content */}
               {/* Circular Timer */}
               <div className="absolute bottom-4 right-4">
-                <svg width="50" height="50" className="text-foreground">
+                <svg width="50" height="50" className="text-black">
                   <circle
                     cx="25"
                     cy="25"
@@ -215,12 +215,12 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
         onClick={() =>
           goToSlide(activeIndex === 0 ? slides.length - 1 : activeIndex - 1)
         }
-        className="absolute top-1/2 left-30 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/30 z-20"
+        className="absolute top-1/2 left-5 lg:left-10 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/30 z-20 hidden md:block"
         icon={"left"}
       />
       <ImageButton
         onClick={() => goToSlide((activeIndex + 1) % slides.length)}
-        className="absolute top-1/2 right-30 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/30 z-20"
+        className="absolute top-1/2 right-5 lg:right-10 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/30 z-20 hidden md:block"
         icon={"right"}
       />
     </div>

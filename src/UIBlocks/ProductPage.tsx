@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import apiClient from "@/pages/app/api/apiClients";
 import ProductCard from "./ProductCard";
@@ -7,6 +7,11 @@ import VerticalImageList from "@/Slider/VerticalImageList";
 import RatingReviews from "./RatingReviews";
 import Settings from "../../public/settings.json";
 import Button from "@/Components/Input/Button";
+import Stepper from "./Stepper";
+import OrderSummary from "./OrderSummary";
+import AddressSection from "./AddressSection";
+import OrderPayment from "./OrderPayment";
+import OrderSuccess from "./OrderSuccess";
 
 // Define types
 interface Field {
@@ -42,6 +47,8 @@ function ProductPage() {
   const [selectedImage, setSelectedImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isPlaceOrder, setIsPlaceOrder] = useState(false);
+  const navigate = useNavigate();
 
   // const [offer] = useState([
   //   {
@@ -149,6 +156,31 @@ function ProductPage() {
   const prePrice = activeOffer
     ? Math.round(product.price / (1 - activeOffer / 100))
     : product.price;
+
+  const steps = [
+    {
+      title: "Order Summary",
+      content: <OrderSummary />,
+    },
+    {
+      title: "Address",
+      content: <AddressSection />,
+    },
+    {
+      title: "Payment",
+      content: <OrderPayment />,
+    },
+    {
+      title: "Confirmation",
+      content: (
+        <OrderSuccess
+          orderId="ORD12345678"
+          paymentId="PAY987654321"
+          onContinue={() => navigate("/")}
+        />
+      ),
+    },
+  ];
   return (
     <div className="py-10 sm:px-[5%] mx-auto">
       <div className="grid lg:grid-cols-2 gap-5 xl:grid-cols-[35%_65%] items-start">
@@ -192,7 +224,7 @@ function ProductPage() {
         {/* Product Info */}
         <div className="space-y-4 px-2">
           <h1 className="text-xl text-update font-semibold">{product.name}</h1>
-          <h1 className="text-SM text-gray-800">{product.description}</h1>
+          <h1 className="text-SM text-foreground/80">{product.description}</h1>
           <div className="text-sm text-foreground/50">
             <span className="bg-green-600 text-white text-xs w-max px-2 py-1 rounded">
               4 ★
@@ -246,19 +278,20 @@ function ProductPage() {
 
             <Button
               disabled={product.count < 1}
+              onClick={() => setIsPlaceOrder(!isPlaceOrder)}
               className={`flex-1 px-4 py-2 rounded transition 
-    ${
-      product.count < 1
-        ? "bg-gray-400 cursor-not-allowed text-white"
-        : "bg-green-600 hover:bg-green-700 text-white"
-    }
-  `}
-              label={"BUY NOW"}
+              ${
+                product.count < 1
+                  ? "bg-gray-400 cursor-not-allowed text-white"
+                  : "bg-green-600 hover:bg-green-700 text-white"
+              }
+            `}
+              label={"Buy Now"}
             />
           </div>
           {/* Specifications */}
           <div className="mt-10 border border-ring/30 rounded-md p-5">
-            <h2 className="text-3xl font-bold border-b border-ring/30 pb-3 text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold border-b border-ring/30 pb-3 text-foreground/90 mb-4">
               {Settings.product.specification_read.title}
             </h2>
 
@@ -278,7 +311,7 @@ function ProductPage() {
                     key={submenu.id}
                     className="mb-6 border-b border-ring/30 pb-3 last:border-0"
                   >
-                    <h3 className="text-lg text-foreground/50 font-bold">
+                    <h3 className="text-lg text-foreground font-bold">
                       {submenu.title}
                     </h3>
 
@@ -289,8 +322,8 @@ function ProductPage() {
                             key={field.id}
                             className="flex justify-between py-1 text-sm"
                           >
-                            <span className="text-gray-600">{field.label}</span>
-                            <span className="font-medium text-gray-800">
+                            <span className="text-foreground/70">{field.label}</span>
+                            <span className="font-medium text-foreground/70">
                               {field.value}
                             </span>
                           </div>
@@ -351,6 +384,18 @@ function ProductPage() {
           ribbon={true}
         />
       </div>
+      {isPlaceOrder && (
+        <div className="fixed top-1/2 z-10000 left-1/2 w-full p-2 lg:w-[80%] h-[90vh] transform -translate-x-1/2 -translate-y-1/2 shadow overflow-scroll scrollbar-hide">
+          <Stepper
+            steps={steps}
+            onClose={() => setIsPlaceOrder(!isPlaceOrder)}
+            onFinish={() => navigate("/")}
+          />
+        </div>
+      )}
+      {isPlaceOrder && (
+        <div className="fixed z-1000 top-1/2 left-1/2 w-full h-full bg-black/50 transform -translate-x-1/2 -translate-y-1/2"></div>
+      )}
     </div>
   );
 }

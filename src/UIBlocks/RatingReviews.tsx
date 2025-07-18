@@ -119,14 +119,14 @@ export default function RatingReviews() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-md shadow-sm space-y-6">
+    <div className="bg-background p-6 rounded-md shadow-sm space-y-6">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
           <h2 className="text-xl font-semibold mb-2">Ratings & Reviews</h2>
           <div className="flex items-center gap-4">
             <div className="text-4xl font-bold">{ratingStats.average}★</div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-foreground/60">
               {ratingStats.totalRatings.toLocaleString()} Ratings & <br />
               {ratingStats.totalReviews.toLocaleString()} Reviews
             </div>
@@ -140,7 +140,7 @@ export default function RatingReviews() {
                 return (
                   <div key={star} className="flex items-center gap-2">
                     <span className="text-sm w-5">{star}★</span>
-                    <div className="flex-1 bg-gray-200 h-2 rounded">
+                    <div className="flex-1 bg-foreground/60 h-2 rounded">
                       <div
                         className="h-2 rounded bg-green-500"
                         style={{ width: percentage }}
@@ -154,7 +154,7 @@ export default function RatingReviews() {
         </div>
 
         {/* Rate Product Button */}
-        <button className="border px-4 py-2 rounded hover:bg-gray-100 text-sm">
+        <button className="border px-4 py-2 rounded hover:bg-update text-sm">
           Rate Product
         </button>
       </div>
@@ -198,7 +198,7 @@ export default function RatingReviews() {
                   {feature.value.toFixed(1)}
                 </text>
               </svg>
-              <span className="text-xs text-gray-600 text-center">
+              <span className="text-xs text-foreground/60 text-center">
                 {feature.label}
               </span>
             </div>
@@ -255,7 +255,7 @@ export default function RatingReviews() {
               </div>
               <span className="font-semibold">{review.title}</span>
             </div>
-            <p className="text-sm text-gray-700">{review.text}</p>
+            <p className="text-sm text-foreground/80">{review.text}</p>
             {review.images.length > 0 && (
               <div className="flex gap-2">
                 {review.images.map((img, idx) => (

@@ -183,7 +183,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
             {/* Right: Text Content */}
             <div className="w-1/2 h-full flex flex-col justify-center items-start p-4 relative">
               <h2
-                className={`text-2xl md:text-7xl font-bold text-foreground/90 mb-2 uppercase ${
+                className={`text-2xl md:text-5xl lg:text-7xl font-bold text-black/80 mb-2 uppercase ${
                   index === activeIndex
                     ? "animate__animated animate__fadeInDown"
                     : ""
@@ -192,7 +192,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
                 {slide.title}
               </h2>
               <h2
-                className={`text-sm md:text-xl text-foreground/90 mt-3 mb-2 line-clamp-2 ${
+                className={`text-sm md:text-xl text-black/80 mt-3 mb-2 line-clamp-2 ${
                   index === activeIndex
                     ? "animate__animated animate__fadeInUp"
                     : ""
@@ -202,7 +202,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
               </h2>
               {slide.price && (
                 <p
-                  className={`text-md md:text-2xl mt-3 ${
+                  className={`text-md text-black/80 md:text-2xl mt-3 ${
                     index === activeIndex
                       ? "animate__animated animate__fadeInUp"
                       : ""
@@ -214,7 +214,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
 
               {slide.discount && (
                 <p
-                  className={`text-md md:text-2xl mt-3 ${
+                  className={`text-md text-black/80 md:text-2xl mt-3 ${
                     index === activeIndex
                       ? "animate__animated animate__fadeInUp"
                       : ""
@@ -239,7 +239,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
 
               {/* Circular Timer */}
               <div className="absolute bottom-4 right-4">
-                <svg width="50" height="50" className="text-foreground">
+                <svg width="50" height="50" className="text-black">
                   <circle
                     cx="25"
                     cy="25"
@@ -296,12 +296,12 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
         onClick={() =>
           goToSlide(activeIndex === 0 ? slides.length - 1 : activeIndex - 1)
         }
-        className="absolute top-1/2 left-3 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/50 z-20"
+        className="absolute top-1/2 left-3 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/50 z-20 hidden md:block"
         icon={"left"}
       />
       <ImageButton
         onClick={() => goToSlide((activeIndex + 1) % slides.length)}
-        className="absolute top-1/2 right-3 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/50 z-20"
+        className="absolute top-1/2 right-3 -translate-y-1/2 bg-black/30 text-white p-2 sm:p-4 !rounded-full hover:bg-black/50 z-20 hidden md:block"
         icon={"right"}
       />
     </div>
